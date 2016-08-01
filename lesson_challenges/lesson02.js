@@ -117,3 +117,11 @@ var gmail = {
     }
   ]
 };
+
+
+names = ["julie", "ralph", "stella", "moose"]
+namesUpper = []
+names.forEach(function(name) {
+   namesUpper.push(name[0].toUpperCase() + name.slice(1).toLowerCase());
+})
+console.log(namesUpper);
