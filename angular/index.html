@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--ng-app is a DIRECTIVE which, in this case, calls the module-->
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <!-- again, a DIRECTIVE calls, this time, a controller with the keyword "as" and the name of the module, which is "store". it will apply for anything that falls within the assignment div -->
+  <body ng-controller="StoreController as store">
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+        <!-- Image Gallery  -->
+        <div class="gallery" ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[0]}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" >
+              <img ng-src="{{image}}" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
