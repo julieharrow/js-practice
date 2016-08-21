@@ -29,7 +29,7 @@ var numPlayers = Number(prompt("How many players?"));
 var players = [];
 
 for (var i = 1; i <= numPlayers; i++){
-  player = {
+  var player = {
     name: (prompt("Player "+ i +", what is your name?")).capitalizeFirstLetter(),
     numWins:0,
     hand:getHand()
@@ -37,6 +37,7 @@ for (var i = 1; i <= numPlayers; i++){
   players.push(player);
 }
 
+players.forEach function(){
   while (numWins < 3) {
     var userHand = (prompt("rock, paper, or scissors?")).toLowerCase();
     var computerHand = options[parseInt(Math.random()*10%3)];
@@ -70,5 +71,5 @@ for (var i = 1; i <= numPlayers; i++){
       console.log("Please make sure you type 'rock', 'paper', or 'scissors' to play.")
     }
   }
-  console.log("That is 3 wins " + name + "! Congrats!")
+  console.log("That is 3 wins " + player.name + "! Congrats!")
 }
